@@ -2,7 +2,7 @@
 Deadman is an anti-forensic linux kernel module deadman-switch will shut down
 the system once the load-time specified USB device gets removed
 
-Inspired by [silk-guardian](), but much simpler in scope
+Inspired by [silk-guardian](https://github.com/pepa65/silk-guardian.git), but much simpler in scope
 
 ## Build & Use
 
