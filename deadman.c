@@ -7,8 +7,9 @@
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("pepa65 <solusos@passchier.net>");
 MODULE_DESCRIPTION("Kernel module that shuts down the system when a specified USB device is removed.");
-
 // Run like: insmod deadman.ko usb=0xVENDPROD
+
+// Instead of 0, this can be set to a default device
 static int usb = 0;
 MODULE_PARM_DESC(usb, "USB identifier: idVendor * 0x10000 + idProduct");
 module_param(usb, int, 0644);
