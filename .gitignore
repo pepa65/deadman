@@ -1,0 +1,12 @@
+.built-in.o.cmd
+.deadman.ko.cmd
+.deadman.mod.o.cmd
+.deadman.o.cmd
+.tmp_versions/
+Module.symvers
+built-in.o
+deadman.ko
+deadman.mod.c
+deadman.mod.o
+deadman.o
+modules.order
