@@ -22,7 +22,7 @@ static int notify(struct notifier_block *self, unsigned long action, struct usb_
 				&& v == dev->descriptor.idVendor
 				&& p == dev->descriptor.idProduct) {
 			printk("Shutting down\n");
-			//kernel_power_off();
+			kernel_power_off();
 		}
 	}
 	return 0;
