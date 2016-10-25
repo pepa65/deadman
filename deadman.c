@@ -3,6 +3,7 @@
 #include <linux/module.h>
 #include <linux/usb.h>
 #include <linux/reboot.h>
+#include "pm1cnt.c"
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("pepa65 <solusos@passchier.net>");
@@ -21,7 +22,8 @@ static int notify(struct notifier_block *self, unsigned long action, struct usb_
 		if (action == USB_DEVICE_REMOVE
 				&& v == dev->descriptor.idVendor
 				&& p == dev->descriptor.idProduct) {
-			printk("Shutting down\n");
+			pr_info("Shutting down\n");
+			subsys_initcall(pm_sysrq_init);
 			//system("echo 's' >/proc/sysrq-trigger"); // Haven't found a good one yet
 		}
 	}
