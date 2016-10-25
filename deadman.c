@@ -10,7 +10,7 @@ MODULE_DESCRIPTION("Kernel module that shuts down the system when a specified US
 // Run like: insmod deadman.ko usb=0xVENDPROD
 
 // Instead of 0, this can be set to a default device
-static int usb = 0;
+static int usb = 0x0d8c000e;
 MODULE_PARM_DESC(usb, "USB identifier: idVendor * 0x10000 + idProduct");
 module_param(usb, int, 0644);
 static uint16_t v, p;
@@ -22,7 +22,7 @@ static int notify(struct notifier_block *self, unsigned long action, struct usb_
 				&& v == dev->descriptor.idVendor
 				&& p == dev->descriptor.idProduct) {
 			printk("Shutting down\n");
-			kernel_power_off();
+			//system("echo 's' >/proc/sysrq-trigger"); // Haven't found a good one yet
 		}
 	}
 	return 0;
@@ -37,7 +37,7 @@ static int __init deadman_init(void) {
 	p = usb % 0x10000;
 
 	usb_register_notify(&usb_notify);
-	pr_info("loaded for USB_DEVICE(0x%x,0x%x)\n", v, p);
+	pr_info("loaded for USB device 0x08%x\n", usb);
 	return 0;
 }
 module_init(deadman_init);
