@@ -10,3 +10,4 @@ deadman.mod.c
 deadman.mod.o
 deadman.o
 modules.order
+.cache.mk
