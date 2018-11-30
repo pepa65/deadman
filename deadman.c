@@ -29,7 +29,7 @@ static void start_panic(struct usb_device *dev){
 	struct device *mark;
 	for (mark = &dev->dev; mark; mark = mark->parent) mutex_unlock(&mark->mutex);
 	if (off){
-		printk("Powering off.\n");
+		printk("Powering off\n");
 		kernel_power_off();
 	}
 	pr_info("Not powering off\n");
@@ -43,8 +43,8 @@ static void usb_inserted(struct usb_device *dev){
 
 static int usb_removed(struct usb_device *dev){
 	unsigned int d = 0x10000*dev->descriptor.idVendor+dev->descriptor.idProduct;
+	pr_info("USB device 0x%08x removed\n", d);
 	if (d == id) start_panic(dev);
-	else pr_info("USB device 0x%08x removed\n", d);
 	return 0;
 }
 
