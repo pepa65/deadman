@@ -9,8 +9,8 @@ Inspired by [silk-guardian](https://github.com/pepa65/silk-guardian.git), but mu
 
 Build: `make`
 
-Usage: `sudo insmod deadman.ko [id=0xVENDPROD] [off=0] [ins=1]
-```
+Usage: `sudo insmod deadman.ko [id=0xVENDPROD] [off=0] [ins=1]`
+
 * `id`: *VEND* is the 2-byte hexadecimal code for idVendor and *PROD* for idProduct. The `id` parameter can also be set to a default device in the source before building.
 * `ins`: if ins=1 is passed, any USB device getting inserted triggers a panic.
 * `off`: if `off=0` is passed, the computer will not turn off at a panic.
