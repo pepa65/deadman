@@ -7,7 +7,7 @@
 
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("pepa65 <pepa65@passchier.net>, Greg Kroah-Hartman, Nate Brune");
-MODULE_DESCRIPTION("Panic on removal of 'deadman' USB device or any USB device being inserted.");
+MODULE_DESCRIPTION("Panic on removal of 'deadman' USB device (or insertion of any USB device).");
 MODULE_PARM_DESC(id, "USB ID of the deadman device: 'id=0x1234abcd' (vendor 0x1234, product 0xabcd)");
 MODULE_PARM_DESC(ins, "Panic on any USB device being inserted: 'ins=1'");
 MODULE_PARM_DESC(off, "Don't turn the computer off on panic: 'off=0'");
