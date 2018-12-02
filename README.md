@@ -1,19 +1,18 @@
 # deadman
-Deadman is an anti-forensic linux kernel module deadman-switch that responds to usb events. By default it turns of when a specific USB device is removed. It can also respond to any USB device being plugged in (for the very paranoid).
+Deadman is an anti-forensic linux kernel module deadman-switch that responds to usb events. By default it turns the computer off when a specific USB device is removed. It can also respond to any USB device being plugged in.
 
 Inspired by [silk-guardian](https://github.com/pepa65/silk-guardian.git), but much simpler in scope.
 
 ## Build & Use
 
 * Required: libelf-dev
-
-Build: `make`
-
-Usage: `sudo insmod deadman.ko [id=0xVENDPROD] [off=0] [ins=1]`
-
-* `id`: *VEND* is the 2-byte hexadecimal code for idVendor and *PROD* for idProduct. The `id` parameter can also be set to a default device in the source before building.
-* `ins`: if ins=1 is passed, any USB device getting inserted triggers a panic.
-* `off`: if `off=0` is passed, the computer will not turn off at a panic.
+* Build: `make`
+* Install: `sudo make install`
+* Usage: `sudo insmod deadman.ko [id=0xVENDPROD] [off=0] [ins=1]`
+* Usage (if installed): `sudo modprobe deadman [id=0xVENDPROD] [off=0] [ins=1]`
+ - `id`: *VEND* is the 2-byte hexadecimal code for idVendor and *PROD* for idProduct. The `id` parameter can also be set to a default device in the source before building.
+ - `ins`: if ins=1 is passed, any USB device getting inserted triggers a panic.
+ - `off`: if `off=0` is passed, the computer will not turn off at a panic.
 
 ## Why?
 

@@ -57,13 +57,17 @@ static struct notifier_block usb_notify = {.notifier_call = notify};
 
 static int __init deadman_init(void){
 	usb_register_notify(&usb_notify);
-	pr_info("Watching USB device 0x%08x\n", id);
+	if (id) pr_info("Watching removal of USB device 0x%08x\n", id);
+	if (ins) pr_info("Watching insertion of any USB device");
+	if (!ins && !id) pr_info("Loaded but not functional");
 	return 0;
 }
 module_init(deadman_init);
 
 static void __exit deadman_exit(void) {
 	usb_unregister_notify(&usb_notify);
-	pr_info("Stopped watching USB device 0x%08x\n", id);
+	if (id) pr_info("Stopped watching USB device 0x%08x\n", id);
+	if (ins) pr_info("Stopped watching insertion of USB devices");
+	if (!ins && !id) pr_info("Unloaded");
 }
 module_exit(deadman_exit);
