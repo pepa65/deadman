@@ -1,6 +1,5 @@
 #define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
 
-// Required: libelf-dev
 #include <linux/module.h>
 #include <linux/kernel.h>
 #include <linux/usb.h>
